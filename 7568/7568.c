@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-
 void	arr_ele_cmp(int arr[][2], int row, int array[])
 {
 	int i;
@@ -29,12 +28,6 @@ void	arr_ele_cmp(int arr[][2], int row, int array[])
 		array[i] = order;
 		i++;
 	}
-	printf("%d ",array[0]);
-	printf("%d ",array[1]);
-	printf("%d ",array[2]);
-	printf("%d ",array[3]);
-	printf("%d",array[4]);
-	printf("\n");
 }
 
 
@@ -59,17 +52,10 @@ int	main()
 
 	row = sizeof(array) / sizeof(array[0]);
 
-//	printf("col : %d,  row : %d \n", col, row);
-
 	arr_ele_cmp(array, row, print_array);
-//
-//	for (int r = 0; r < num; r++)
-//	{
-//		for (int c = 0; c < 2; c++)
-//		{
-//			printf("%d ",array[r][c]);
-//		}
-//		printf("\n");
-//	}
-//
+	for (int r = 0; r < num; r++)
+	{
+		r == (num - 1) ? printf("%d", print_array[r]) : printf("%d ", print_array[r]);
+		
+	}
 }
