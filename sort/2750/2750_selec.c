@@ -4,7 +4,7 @@ void	sort(int array[], int size)
 {
 	int temp;
 
-	for (int fix = 0; fix < size; fix++)
+	for (int fix = 0; fix < size - 1; fix++)
 	{
 		for (int move = fix + 1; move < size; move++)
 		{
