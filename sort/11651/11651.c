@@ -7,10 +7,10 @@ typedef struct
 	int y;
 }	coordinates;
 
+coordinates sort[100001];
 
 void	merge(coordinates array[], int low, int middle, int high)
 {
-	coordinates sort[10001];
 	int i, j, k;
 
 	i = low;
@@ -18,13 +18,13 @@ void	merge(coordinates array[], int low, int middle, int high)
 	k = 0;
 	while (i <= middle && j <= high)
 	{
-		if (array[i].x > array[j].x)
+		if (array[i].y > array[j].y)
 		{
 			sort[k] = array[j];
 			j++;
 			k++;
 		}
-		else if (array[i].x < array[j].x)
+		else if (array[i].y < array[j].y)
 		{
 			sort[k] = array[i];
 			i++;
@@ -32,7 +32,7 @@ void	merge(coordinates array[], int low, int middle, int high)
 		}
 		else
 		{
-			if (array[i].y < array[j].y)
+			if (array[i].x < array[j].x)
 			{
 				sort[k] = array[i];
 				i++;				

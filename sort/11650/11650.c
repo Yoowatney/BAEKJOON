@@ -1,85 +1,97 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct
+typedef struct 
 {
 	int x;
 	int y;
-}	coordinate;
+} coordinates;
 
-coordinate[100001]; 
-void	merge(coordinate *array, int low, int middle, int high)
+coordinates sort[100001];
+
+void merge(coordinates arr[], int first, int mid, int last)
 {
-	int temp[high - low + 1];
-	int	i_left = low;
-	int i_right = middle + 1;
-	int move = 0;
-	
-	while (i_left <= middle && i_right <= high)
+	int i, j, k;
+	i = first;
+	j = mid + 1;
+	k = 0;
+
+	while (i <= mid && j <= last)
 	{
-		if (array[i_left] > array[i_right])
+		if (arr[i].x < arr[j].x)
 		{
-			temp[move] = array[i_right];
-			move++;
-			i_right;
+			sort[k] = arr[i];
+			k++;
+			i++;
+		}
+		else if (arr[i].x > arr[j].x)
+		{
+			sort[k] = arr[j];
+			k++;
+			j++;
 		}
 		else
 		{
-			temp[move] = array[i_left];
-			move++;
-			i_left;
+			if (arr[i].y < arr[j].y)
+			{
+				sort[k] = arr[i];
+				k++;
+				i++;
+			}
+			else if (arr[i].y > arr[j].y)
+			{
+				sort[k] = arr[j];
+				k++;
+				j++;
+			}
 		}
 	}
-	
-	while (i_left <= middle)
+	while (i <= mid) 
 	{
-		temp[move] = array[i_left];
-		move++;
-		i_left;
+		sort[k] = arr[i];
+		k++;
+		i++;
 	}
-
-	while (i_right <= middle)
+	while (j <= last) 
 	{
-		temp[move] = array[i_right];
-		move++;
-		i_right;
+		sort[k] = arr[j];
+		k++;
+		j++;
 	}
-	move--;
-	while (move >= 0)
+	k--;
+	while (k >= 0)
 	{
-		array[low + move] = temp[move];
-		move--;
+		arr[k + first] = sort[k];
+		k--;
 	}
 }
 
-void	mergesort(coordinate *array[], int low, int high)
+void mergesort(coordinates arr[], int first, int last)
 {
-	if (low < high)
+	int mid;
+
+	if (first < last)
 	{
-		int middle = (low + high) / 2;
-		mergesort(array, low, middle);
-		mergesort(array, middle + 1, high);
-		merge(array, low, middle, high);
+		mid = (first + last) / 2;
+		mergesort(arr, first, mid);
+		mergesort(arr, mid + 1, last);
+		merge(arr, first, mid, last);
 	}
-	else 
-		return ;
 }
 
-int	main()
+int main(void)
 {
 	int size;
-
 	scanf("%d", &size);
-
-	coordinate *arr = (coordinate *)malloc(sizeof(coordinate) * size);
-	for (int i = 0; i < size; i++)
+	coordinates arr[size];
+	for(int i = 0; i < size; i++)
 	{
 		scanf("%d %d", &arr[i].x, &arr[i].y);
 	}
+
 	mergesort(arr, 0, size - 1);
 	for (int i = 0; i < size; i++)
-	{
-		printf("%d %d\n",arr[i].x, arr[i].y);
-	}
-	free[arr];
+		printf("%d %d\n", arr[i].x, arr[i].y);
+
+	return 0;
 }
