@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-int num_arr[20] = { 0, };
-int array[20];
+int		g_num_arr[20] = { 0, };
+int		g_array[20];
 
-void track(int n, int m, int x)
+void	DFS(int n, int m, int x)
 {
 	if (m == x)
 	{
@@ -17,15 +17,15 @@ void track(int n, int m, int x)
 			continue;
 		num_arr[i] = 1;
 		array[x] = i;
-		track(n, m, x + 1);
+		DFS(n, m, x + 1);
 		num_arr[i] = 0;
 	}
 }
 
-int main(void)
+int		main()
 {
 	int n, m;
 	scanf("%d %d", &n, &m);
-	track(n, m, 0);
+	DFS(n, m, 0);
 	return 0;
 }
