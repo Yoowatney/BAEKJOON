@@ -12,11 +12,11 @@ void solve(int y, int x, int num)
 	}
 
 	int div = num/3;
-	for(int i=0; i<3; i++)
+	for(int i = 0; i < 3; i++)
 	{
-		for(int j=0; j<3; j++)
+		for(int j = 0; j < 3; j++)
 		{
-			if(i == 1 && j == 1)
+			if (i == 1 && j == 1)
 				;
 			else
 				solve(y+(i*div), x+(j*div), div);
