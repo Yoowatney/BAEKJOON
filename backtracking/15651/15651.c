@@ -1,31 +1,32 @@
 #include <stdio.h>
 
-void	DFS(int n, int m, int num_arr[], int arr[], int index)
+void	DFS(int n, int m, int arr[], int index)
 {
+	int j;
+
 	if (m == index)
 	{
-		for (int i = 0; i < m; i++)
+		for (j = 0; j < m - 1; j++)
 		{
-			printf("%d ", arr[i]); 
+			printf("%d ", arr[j]);
 		}
+		printf("%d", arr[j]);
+		printf("\n");
+		return ;
 	}
 	for (int i = 0; i < n; i++)
 	{
-		if (num_arr[i] == 0)
-		{
-			arr[index] = i + 1;
-			num_arr[i] = 1;
-		}
+		arr[index] = i + 1;
+		DFS(n, m, arr, index + 1);
 	}
 }
 
 int	main()
 {
-	int n,m;
-	scanf("%d %d", &n, &m);
-	
-	int num_arr[n];
-	int arr[m];
+	int n, m;
 
-	DFS(n, m, num_arr, arr, 0);
+	scanf("%d %d", &n, &m);
+	int arr[m];
+	DFS(n, m, arr, 0);
+	
 }
