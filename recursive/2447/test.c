@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-char	g_array[300][300];
+char	g_array[3000][3000];
 
 void	set_array(int row, int col, int num)
 {

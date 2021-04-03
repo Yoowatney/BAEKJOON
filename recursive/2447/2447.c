@@ -12,6 +12,7 @@ void star(int x, int y, int num)
 			star(x, y, num / 3);
 	} 
 }
+
 int main(void) 
 {
    	int num;

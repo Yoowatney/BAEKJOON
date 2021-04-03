@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-int g_col;
-int g_count;
-char g_board1[8][9] = {"WBWBWBWB",
+int		g_col;
+int		g_count;
+char	g_board1[8][9] = {"WBWBWBWB",
 	                   "BWBWBWBW",
 					   "WBWBWBWB",
 					   "BWBWBWBW",
@@ -40,7 +40,8 @@ int	count_num(char board[][g_col + 1], int row, int col)
 			{
 				for (int c = 0; c < 8; c++)
 				{
-					if (board[r + move_bottom][c + move_right] != g_board1[r][c])
+					if (board[r + move_bottom][c + move_right] 
+							!= g_board1[r][c])
 					{
 						count1++;
 					}
@@ -86,7 +87,6 @@ int	main()
 
 	scanf("%d %d", &row, &col);
 	char board[row][col + 1];
-
 
 	for (int r = 0; r < row; r++)
 	{
