@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+int A = 1;
 int	main()
 {
 	int A, B;
