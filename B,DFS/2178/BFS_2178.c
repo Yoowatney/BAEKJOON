@@ -11,6 +11,7 @@ typedef struct __queue
 	int x;
 	int y;
 } _queue;
+
 void	BFS(int n, int m, _queue queue[n * m + 1])
 {
 	int pop_x;
@@ -29,10 +30,10 @@ void	BFS(int n, int m, _queue queue[n * m + 1])
 		pop_x = queue[front].x;
 		pop_y = queue[front].y;
 		front++;
-		for (int k = 0; k < 4; k++)
+		for (int i = 0; i < 4; i++)
 		{
-			nx = pop_x + dx[k];
-			ny = pop_y + dy[k];
+			nx = pop_x + dx[i];
+			ny = pop_y + dy[i];
 			if (nx <= 0 || ny <= 0 || nx >= n + 1 || ny >= m + 1)
 				continue ;
 			if (g[nx][ny] == 0)
@@ -72,5 +73,5 @@ int main()
 		}
 		printf("\n");
 	}
-
+	printf("%d", g[n][m]);
 }
