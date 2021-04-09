@@ -11,12 +11,14 @@ int	min(int num1, int num2)
 int	dp(int n, int color)
 {
 	if (n == 1)
+	{
 		if (color == 0)
 			return (array[1][0]);
 		else if (color == 1)
 			return (array[1][1]);
 		else
 			return (array[1][2]);
+	}
 	if (d[n][color] != 0)
 		return (d[n][color]);
 	if (color == 0)
@@ -25,6 +27,7 @@ int	dp(int n, int color)
 		return (d[n][1] = min(dp(n - 1, 0), dp(n - 1, 2)) + array[n][1]);
 	if (color == 2)
 		return (d[n][2] = min(dp(n - 1, 0), dp(n - 1, 1)) + array[n][2]);
+	return (1);
 }
 
 

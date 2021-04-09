@@ -1,15 +1,19 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main()
 {
-	int j = 0;
-	int i;
+	long long j = 0;
+	long long i;
 
 	printf("H");
-	for (i = 0; i < 1000000000; i++)
+	for (i = 0; i < 1220000000; i++)
 	{
-		j++;
+		j += rand();
 	}
-	if (i == 1000000000)
-		printf("ello World!");
+	for (i = 0; i < 1000; i++)
+	{
+		j += rand();
+	}
+	printf("ello World!");
 }

@@ -24,8 +24,8 @@ void	DFS(int x, int y, int n, int m, int num)
 	//{
 	//	g[x][y] = k;
 	DFS(x - 1, y, n, m, num + 1);
-	DFS(x + 1, y, n, m, num + 1);
 	DFS(x, y - 1, n, m, num + 1);
+	DFS(x + 1, y, n, m, num + 1);
 	DFS(x, y + 1, n, m, num + 1);
 	//}
 }

@@ -109,6 +109,4 @@ int	main()
 //		printf("%d %d\n", point2D[i].x, point2D[i].y);
 //	}
 	printf("%d\n", cnt);
-
-
 }
