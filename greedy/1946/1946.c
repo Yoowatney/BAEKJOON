@@ -34,14 +34,9 @@ int main()
 				inter_first[1] = score[i].y;
 			}
 		}
-//		printf("doc : %d %d, inter : %d %d\n", doc_first[0], doc_first[1], inter_first[0], inter_first[1]);
+		printf("doc : %d %d, inter : %d %d\n", doc_first[0], doc_first[1], inter_first[0], inter_first[1]);
 		for (int i = 0; i < num; i++)
 		{
-//			if (doc_first[0] == inter_first[0] && doc_first[1] == inter_first[1])
-//			{
-//				printf("위에서 선택된 score %d %d\n", doc_first[0], doc_first[1]);
-//				cnt++;
-//			}
 			if (doc_first[1] >= score[i].y && inter_first[0] >= score[i].x)			
 			{
 				printf("선택된 score : %d %d\n", score[i].x, score[i].y);
