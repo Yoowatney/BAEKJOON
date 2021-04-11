@@ -6,14 +6,14 @@ int main()
 	long long j = 0;
 	long long i;
 
-	printf("H");
-	for (i = 0; i < 1220000000; i++)
+	printf("Hiab");
+	for (i = 0; i < 1100; i++)
 	{
-		j += rand();
+		j++;
 	}
 	for (i = 0; i < 1000; i++)
 	{
-		j += rand();
+		j++;
 	}
 	printf("ello World!");
 }

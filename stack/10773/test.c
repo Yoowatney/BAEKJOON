@@ -20,8 +20,19 @@ int main()
 		}
 		else
 		{
+
 			cnt++;
 			arr[move - cnt] = 0;
+//			if (arr[move - cnt] != 0)
+//				arr[move - cnt] = 0;
+//			for (int j = move - 1; j >= 0; j--)
+//			{
+//				if (!removed[j])
+//				{
+//					removed[j] = 1;
+//					break ;
+//				}
+//			}
 		}
 	}
 	int result = 0;
