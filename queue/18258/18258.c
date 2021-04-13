@@ -1,10 +1,9 @@
 #include <stdio.h>
 
-int		arr[10000];
+int		arr[2000000];
 int		move;
 int		cnt;
-int		removed[10000];
-
+int		start;
 
 void	push(int num)
 {
@@ -13,28 +12,31 @@ void	push(int num)
 	cnt++;
 }
 
-int		top()
+int		front()
 {
-	for (int i = move - 1; i >= 0; i--)
+	if (start <= move - 1)
 	{
-		if (arr[i] != 0 && !removed[i])
-		{
-			return (arr[i]);
-		}
+		return (arr[start]);
 	}
 	return (-1);
 }
 
+int		back()
+{
+	if (start <= move - 1)
+	{
+		return (arr[move - 1]);
+	}
+	return (-1);
+}
+
+
 int		pop()
 {
-	for (int i = move - 1; i >= 0; i--)
+	if (start <= move - 1)
 	{
-		if (arr[i] != 0 && !removed[i])
-		{
-			removed[i] = 1;
-			cnt--;
-			return (arr[i]);
-		}
+		cnt--;
+		return (arr[start++]);
 	}
 	return (-1);
 }
@@ -46,12 +48,10 @@ int		size()
 
 int		empty()
 {
-	for (int i = move - 1; i >= 0; i--)
-	{
-		if (!removed[i])
-			return (0);
-	}
-	return (1);
+	if (cnt)
+		return (0);
+	else
+		return (1);
 }
 
 int main()
@@ -81,10 +81,13 @@ int main()
 		{
 			printf("%d\n", empty());
 		}
+		else if (s[0] == 'f')
+		{
+			printf("%d\n", front());
+		}
 		else
 		{
-			printf("%d\n", top());
+			printf("%d\n", back());
 		}
 	}
 }
-
