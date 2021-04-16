@@ -40,7 +40,7 @@ int main()
 			}
 			if (move == strlen(str1))
 			{
-
+				
 			}
 			{
 				printf("move : %d\n", move);
