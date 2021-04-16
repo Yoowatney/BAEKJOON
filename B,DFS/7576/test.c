@@ -32,7 +32,7 @@ void	BFS(int n, int m, _queue queue[n * m + 1], int g[][n], int move)
 		{
 			nx = pop_x + dx[i];
 			ny = pop_y + dy[i];
-			if (nx < 0 || ny < 0 || nx > m || ny > n)
+			if (nx < 0 || ny < 0 || nx >= m || ny >= n)
 				continue ;
 			if (g[nx][ny] != 0 )
 				continue ;
