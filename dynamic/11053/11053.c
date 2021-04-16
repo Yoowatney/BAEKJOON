@@ -1,68 +1,31 @@
 #include <stdio.h>
 
+int arr[1001];
+int dp[1001];
+
 int main()
 {
-	int size;
-
-	scanf("%d", &size);
-	int arr[size];
-	for (int i = 0; i < size; i++)
-	{
-		scanf("%d", &arr[i]);
-	}
-	if (size == 1)
-	{
-		printf("%d\n", arr[0]);
-		return (0);
-	}
-	int min;
-	int cnt;
+	int N;
+	int i,j;
+	int min = 0;
 	int max = 0;
-
-	for (int i = 0; i < size - 1; i++)
+	scanf("%d", &N);
+	for (i = 0; i < N; i++)
 	{
-		min = arr[i];
-		cnt = 1;
-		for (int j = i + 1; j < size; j++)
+		dp[i] = 1;
+		min=0;
+		scanf("%d", &arr[i]);
+		for (j = 0; j < i; j++)
 		{
-			if (j == size - 1)
+			if (arr[i] > arr[j] && min < dp[j])
 			{
-				if (min < arr[j])
-				{
-					cnt++;
-					break ;
-				}
-			}
-			if (min < arr[j])
-			{
-			   for (int k = j + 1; k < size; k++)
-			   {
-				   if (arr[j] < arr[k])
-				   {
-					   cnt++;
-					   min = arr[j];
-					   break ;
-				   }
-				   if (arr[j] > arr[k] && arr[k] > min) // 10 20 15
-				   {
-					   min = arr[k];
-					   cnt++;
-					   j = k;
-					   break ;
-				   }
-//				   if (min > arr[k])
-//				   {
-//					   cnt++;
-//				   }
-				   if (arr[k] < min)
-				   {
-					   cnt++;
-				   }
-			   }
+				min = dp[j];
 			}
 		}
-		if (max < cnt)	
-			max = cnt;
+		dp[i] = min + 1;
+		if (max < dp[i])
+			max = dp[i];
 	}
-	printf("%d\n", max);
+	printf("%d", max);
 }
+

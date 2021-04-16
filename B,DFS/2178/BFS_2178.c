@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int g[101][101] = {0, };
+int g[101][101];
 int dx[4] = {-1, 1, 0, 0};
 int dy[4] = {0, 0, -1, 1};
 
@@ -54,7 +54,7 @@ int main()
 	int n, m;
 
 	scanf("%d %d", &n, &m);
-	_queue queue[n * m + 1];
+	_queue queue[n * m];
 
 	memset(queue, 0 , sizeof(queue));
 	for (int i = 1; i < n + 1; i++)

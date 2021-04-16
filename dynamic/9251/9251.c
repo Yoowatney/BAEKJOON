@@ -23,7 +23,7 @@ int main()
 	{
 		for (int j = 1; str1[j] != '\0'; j++)
 		{
-		   	if (str2[i] == str1[j])
+			if (str2[i] == str1[j])
 			{
 				arr[i][j] = arr[i - 1][j - 1] + 1;
 			}
