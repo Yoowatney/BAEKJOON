@@ -9,13 +9,13 @@ int main()
 	int x, y, k;
 	
 	scanf("%d %d %d", &y, &x, &k);
-	int arr[y][x];
+	int arr[y + 1][x + 1];
 	memset(arr, 0, sizeof(arr));
-//	for (int i = 0; i < y; i++)
+//	for (int i = 0; i <= y; i++)
 //	{
-//		for (int j = 0; j < x; j++)
+//		for (int j = 0; j <= x; j++)
 //		{
-//			printf("%d ", arr[y - i - 1][j]);
+//			printf("%d ", arr[y - i][j]);
 //		}
 //		printf("\n");
 //	}
@@ -26,32 +26,41 @@ int main()
 	{
 		scanf("%d %d", &a, &b);
 		scanf("%d %d", &c, &d);
-		for (int y_temp = b; y_temp < d; y_temp++)
+		for (int y_temp = b; y_temp <= d; y_temp++)
 		{
-			for (int x_temp = a; x_temp < c; x_temp++)
+			for (int x_temp = a; x_temp <= c; x_temp++)
 			{
 				arr[y_temp][x_temp] = 1;
 			}
 		}
 	}
-//	printf("\n----- before -----\n");
-//	for (int i = 0; i < y; i++)
-//	{
-//		for (int j = 0; j < x; j++)
-//		{
-//			printf("%d ", arr[i][j]);
-//		}
-//		printf("\n");
-//	}
+	printf("\n----- before -----\n");
+	for (int i = 0; i <= y; i++)
+	{
+		for (int j = 0; j <= x; j++)
+		{
+			printf("%d ", arr[i][j]);
+		}
+		printf("\n");
+	}
+	printf("\n----- before -----\n");
+	for (int i = 0; i <= y; i++)
+	{
+		for (int j = 0; j <= x; j++)
+		{
+			printf("%d ", arr[y - i][j]);
+		}
+		printf("\n");
+	}
 	int result = 0;
 	int temp[6000] = {0,};
 	int index = 0;
 	
-	for (int i = 0; i < y; i++)
+	for (int i = 0; i <= y; i++)
 	{
-		for (int j = 0; j < x; j++)
+		for (int j = 0; j <= x; j++)
 		{
-			if (DFS(i, j, x, y, arr) == 1)
+			if (i == 0 && j == 0 && DFS(i, j, x, y, arr) == 1)
 			{
 				result++;
 				temp[index] = cnt;
@@ -60,12 +69,12 @@ int main()
 			}
 		}
 	}
-//	printf("\n----- after -----\n");
-//	for (int i = 0; i < y; i++)
+//	printf("\n----- answer -----\n");
+//	for (int i = 0; i <= y; i++)
 //	{
-//		for (int j = 0; j < x; j++)
+//		for (int j = 0; j <= x; j++)
 //		{
-//			printf("%d ", arr[i][j]);
+//			printf("%d ", arr[y - i][j]);
 //		}
 //		printf("\n");
 //	}
@@ -82,10 +91,10 @@ int main()
 			}
 		}
 	}
-	printf("%d\n", result);
+	printf("result : %d\n", result);
 	for (int i = 0; i < index; i++)
 	{
-		printf("%d ", temp[i]);
+		printf("temp[%d] : %d\n", i, temp[i]);
 	}
 }
 
@@ -93,10 +102,12 @@ int	DFS(int i, int j, int x, int y, int arr[][x])
 {
 	if (i < 0 || j < 0 || i >= y || j >= x)
 		return (0);
-	if (arr[i][j] == 0)
+	if (arr[i][j + 1] == 0 || arr[i + 1][j] == 0 || arr[i + 1][j + 1] == 0)
+		return (0);
+	if (arr[i][j] == 0 || arr[i][j + 1] == 0 || arr[i + 1][j] == 0 || arr[i + 1][j + 1] == 0)
 	{
 		cnt++;
-		arr[i][j] = 1;
+		arr[i][j] = -1;
 		DFS(i - 1, j, x, y, arr);
 		DFS(i + 1, j, x, y, arr);
 		DFS(i, j + 1, x, y, arr);
