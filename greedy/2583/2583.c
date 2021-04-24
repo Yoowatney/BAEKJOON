@@ -11,14 +11,14 @@ int main()
 	scanf("%d %d %d", &y, &x, &k);
 	int arr[y][x];
 	memset(arr, 0, sizeof(arr));
-//	for (int i = 0; i < y; i++)
-//	{
-//		for (int j = 0; j < x; j++)
-//		{
-//			printf("%d ", arr[y - i - 1][j]);
-//		}
-//		printf("\n");
-//	}
+	for (int i = 0; i < y; i++)
+	{
+		for (int j = 0; j < x; j++)
+		{
+			printf("%d ", arr[y - i - 1][j]);
+		}
+		printf("\n");
+	}
 	int a, b;
 	int c, d;
 
@@ -34,15 +34,15 @@ int main()
 			}
 		}
 	}
-//	printf("\n----- before -----\n");
-//	for (int i = 0; i < y; i++)
-//	{
-//		for (int j = 0; j < x; j++)
-//		{
-//			printf("%d ", arr[i][j]);
-//		}
-//		printf("\n");
-//	}
+	printf("\n----- before -----\n");
+	for (int i = 0; i < y; i++)
+	{
+		for (int j = 0; j < x; j++)
+		{
+			printf("%d ", arr[i][j]);
+		}
+		printf("\n");
+	}
 	int result = 0;
 	int temp[6000] = {0,};
 	int index = 0;

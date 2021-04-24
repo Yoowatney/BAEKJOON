@@ -32,6 +32,7 @@ int main()
 		printf("\n");
 	}
 	printf("cnt : %d", cnt);
+	return (0);
 }
 
 
