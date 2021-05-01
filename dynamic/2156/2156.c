@@ -36,13 +36,14 @@ int main()
 		dp[i] = max > dp[i - 1] ? max : dp[i - 1]; 
 	}
 	printf("%d\n", dp[size]);
-//	for (int i = 1; i < size + 1; i++)
-//	{
-//		printf("%d ", arr[i]);
-//	}
+	for (int i = 1; i < size + 1; i++)
+	{
+		printf("%d ", dp[i]);
+	}
 //	printf("\n");
 //	for (int i = 1; i < size + 1; i++)
 //	{
 //		printf("%d ", dp[i]);
 //	}
 }
+
