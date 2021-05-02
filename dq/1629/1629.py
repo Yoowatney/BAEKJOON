@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
- #def pow(a, n):
- #    ret = 1
- #    while n > 0:
- #        if n % 2 != 0:
- #            ret *= a
- #        a *= a
- #        n //= 2        
- #    return ret
+#def pow(a, n):
+#    ret = 1
+#    while n > 0:
+#        if n % 2 != 0:
+#            ret *= a
+#        a *= a
+#        n //= 2        
+#    return ret
 # print(pow(5, 5))
 # print(pow(5, 21))
 #def powe(x, y):

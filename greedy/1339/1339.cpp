@@ -6,24 +6,25 @@ int N;
 int alpha[26];
 vector <string> V;
  
-bool Cmp(int A, int B)
+bool cmp(int A, int B)
 {
     if (A > B)
 		return (true);
     return (false);
 }
  
-void Input()
+void input()
 {
     cin >> N;
     for (int i = 0; i < N; i++)
     {
-        string Inp; cin >> Inp;
-        V.push_back(Inp);
+        string s;
+		cin >> s;
+        V.push_back(s);
     }
 }
  
-void Solution()
+void solution()
 {
     for (int i = 0; i < N; i++)
     {
@@ -38,7 +39,7 @@ void Solution()
             pow = pow * 10;
         }
     }
-    sort(alpha, alpha + 26, Cmp);
+    sort(alpha, alpha + 26, cmp);
 //	for (int i = 0; i < 15; i++)
 //	{
 //		cout << alpha[i] << ' ';
@@ -53,8 +54,8 @@ void Solution()
 	}
 	cout << ans << '\n';
 
-//    int num = 9;
-//	ans = 0;
+//		int num = 9;
+//		ans = 0;
 //    for (int i = 0; i < 26; i++)
 //    {
 //        if (alpha[i] == 0)
@@ -65,10 +66,10 @@ void Solution()
 //    cout << ans << '\n';
 }
  
-void Solve()
+void solve()
 {
-    Input();
-    Solution();
+    input();
+    solution();
 }
  
 int main()
@@ -76,5 +77,5 @@ int main()
     ios::sync_with_stdio(0);
     cin.tie(0);
  
-    Solve();
+    solve();
 }
