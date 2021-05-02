@@ -46,7 +46,7 @@ int main()
 //	}
 }
 
-int	BFS()
+int	BFS(int arr[][1000])
 {
 	queue< tuple <int, int, int> > q;
 	tuple <int, int, int> r = make_tuple(0, 0, 0);
@@ -66,7 +66,6 @@ int	BFS()
 		if (pop_y == n - 1 && pop_x == m -  1)
 		{
 			return (visited[pop_y][pop_x][crashed] + 1);
-			break ;
 		}
 		for (int i = 0; i < 4; i++)
 		{
